@@ -1,0 +1,15 @@
+<templateSet group="Magento">
+  <template name="m2module" value="&lt;?xml version=&quot;1.0&quot;?&gt;&#10;&lt;config xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:noNamespaceSchemaLocation=&quot;urn:magento:framework:Module/etc/module.xsd&quot;&gt;&#10;    &lt;module name=&quot;$VENDOR$&quot;/&gt;&#10;&lt;/config&gt; $END$" description="" toReformat="false" toShortenFQNames="true">
+    <variable name="VENDOR" expression="groovyScript(&quot;result = _1.split('/'); return result[2] + '_' + result[3];&quot;, fileRelativePath())" defaultValue="" alwaysStopAt="false" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="m2registration" value="use Magento\Framework\Component\ComponentRegistrar;&#10;&#10;ComponentRegistrar::register(&#10;    ComponentRegistrar::MODULE,&#10;    '$VENDOR$',&#10;    __DIR__ &#10;); $END$" description="" toReformat="false" toShortenFQNames="true">
+    <variable name="VENDOR" expression="groovyScript(&quot;result = _1.split('/'); return result[2] + '_' + result[3];&quot;, fileRelativePath())" defaultValue="" alwaysStopAt="false" />
+    <context>
+      <option name="HTML" value="true" />
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+</templateSet>
